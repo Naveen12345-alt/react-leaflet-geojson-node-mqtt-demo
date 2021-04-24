@@ -4,7 +4,7 @@ import React from 'react'
 import {GeoJSON, MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
 import './App.css'
 import route from './data/Directions_from_Delhi_to_Gurgaon_Haryana.json'
-import AddMarkers from './Map_feature/addMarker'
+import AddMarkers from './Map_features/addMarker'
 
 L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.7.1/dist/images/'
 
