@@ -26,7 +26,7 @@ function publish(topic, msg, options) {
   let msg2 = JSON.stringify(
     data.features[0].geometry.coordinates[count].reverse(),
   )
-  console.log('publishing', msg2, count)
+  console.log('publishing', msg2)
   if (client.connected == true) {
     client.publish(topic, msg2, options)
   }
