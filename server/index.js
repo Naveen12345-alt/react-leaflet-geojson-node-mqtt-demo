@@ -1,12 +1,16 @@
 const mqtt = require('mqtt')
 const data = require('./data/Directions_from_Delhi_to_Gurgaon_Haryana.json')
 let count = 0
-const client = mqtt.connect('mqtt://broker.hivemq.com', {clientId: 'mqttjs01'})
+const client = mqtt.connect('mqtt://broker.hivemq.com', {
+  clientId: 'mqttjs01',
+  keepAlive: 1800000,
+  cleanSession: false,
+})
 console.log('connected flag  ' + client.connected)
 console.log(data.features[0].geometry.coordinates[1])
 
 let message = JSON.stringify(data.features[0].geometry.coordinates[count])
-const topic = 'testtopic'
+const topic = 'testtopic/aplha'
 // const message = 'test message'
 //handle incoming messages
 client.on('message', function (topic, message, packet) {
@@ -26,27 +30,28 @@ function publish(topic, msg, options) {
   let msg2 = JSON.stringify(
     data.features[0].geometry.coordinates[count].reverse(),
   )
-  console.log('publishing', msg2)
+  console.log('publishing', msg2, client.connected)
   if (client.connected == true) {
     client.publish(topic, msg2, options)
   }
   count += 1
-  if (count === 619)
+  if (count === 618) {
     //ens script
-    clearTimeout(timer_id) //stop timer
-  client.end()
+    clearInterval(timer_id) //stop timer
+    client.end()
+  }
 }
 
 //////////////
 
-var options = {
+const options = {
   retain: true,
-  qos: 1,
+  qos: 2,
 }
 
 console.log('subscribing to topics')
 client.subscribe(topic) //object
-var timer_id = setInterval(function () {
+const timer_id = setInterval(function () {
   publish(topic, message, options)
 }, 1000)
 //notice this is printed even before we connect
