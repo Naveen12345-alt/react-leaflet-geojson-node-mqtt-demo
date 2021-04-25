@@ -11,6 +11,7 @@ const client = mqtt.connect('mqtt://broker.hivemq.com:8000/mqtt', {
 // testtopic/aplha is the MQTT topic
 client.subscribe('testtopic/aplha')
 
+// add markers to map on receiving coordinates
 const AddMarkers = () => {
   const [markers, setMarkers] = useState([
     {
