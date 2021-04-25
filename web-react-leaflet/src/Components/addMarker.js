@@ -8,7 +8,7 @@ const client = mqtt.connect('mqtt://broker.hivemq.com:8000/mqtt', {
   cleanSession: true,
 })
 
-// preciouschicken.com is the MQTT topic
+// testtopic/aplha is the MQTT topic
 client.subscribe('testtopic/aplha')
 
 const AddMarkers = () => {
@@ -18,6 +18,8 @@ const AddMarkers = () => {
       lng: -95.6268544,
     },
   ])
+
+  // setmarkers
   useEffect(() => {
     client.on('error', function (err) {
       console.log('connection end')
@@ -42,13 +44,6 @@ const AddMarkers = () => {
           </Popup>
         </Marker>
       ))}
-      <Marker position={markers[0]}>
-        <Popup>
-          <span>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </span>
-        </Popup>
-      </Marker>
     </React.Fragment>
   )
 }

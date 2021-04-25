@@ -9,6 +9,8 @@ import AddMarkers from './Components/addMarker'
 L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.7.1/dist/images/'
 
 export default function App() {
+  // import geojson data and render on map
+
   return (
     <React.Fragment>
       <MapContainer
@@ -31,5 +33,3 @@ export default function App() {
     </React.Fragment>
   )
 }
-
-// <Connected />

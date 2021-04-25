@@ -6,17 +6,17 @@ const client = mqtt.connect('mqtt://broker.hivemq.com', {
   keepAlive: 1800000,
   cleanSession: false,
 })
-console.log('connected flag  ' + client.connected)
-console.log(data.features[0].geometry.coordinates[1])
 
+// message
 let message = JSON.stringify(data.features[0].geometry.coordinates[count])
 const topic = 'testtopic/aplha'
-// const message = 'test message'
+
 //handle incoming messages
 client.on('message', function (topic, message, packet) {
   console.log('topic is ' + topic)
 })
 
+// connect
 client.on('connect', function () {
   console.log('connected  ' + client.connected)
 })
@@ -51,6 +51,7 @@ function publish(topic, msg, options) {
 }
 
 //////////////
+// subscribe
 
 const options = {
   retain: true,
