@@ -2,7 +2,7 @@ const mqtt = require('mqtt')
 const data = require('./data/Directions_from_Delhi_to_Gurgaon_Haryana.json')
 let count = 0
 const client = mqtt.connect('mqtt://broker.hivemq.com', {
-  clientId: 'mqttjs01',
+  clientId: 'mqttjs01#gameit',
   keepAlive: 1800000,
   cleanSession: false,
 })
@@ -20,11 +20,19 @@ client.on('message', function (topic, message, packet) {
 client.on('connect', function () {
   console.log('connected  ' + client.connected)
 })
+
 //handle errors
 client.on('error', function (error) {
   console.log("Can't connect" + error)
   process.exit(1)
 })
+
+//reconnect
+if (!client.connected) {
+  client.on('reconnect', function () {
+    console.log('reconnecting')
+  })
+}
 //publish
 function publish(topic, msg, options) {
   let msg2 = JSON.stringify(
@@ -53,6 +61,6 @@ console.log('subscribing to topics')
 client.subscribe(topic) //object
 const timer_id = setInterval(function () {
   publish(topic, message, options)
-}, 5000)
+}, 1500)
 //notice this is printed even before we connect
 console.log('end of script')
