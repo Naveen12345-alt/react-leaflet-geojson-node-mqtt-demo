@@ -53,6 +53,6 @@ console.log('subscribing to topics')
 client.subscribe(topic) //object
 const timer_id = setInterval(function () {
   publish(topic, message, options)
-}, 1000)
+}, 5000)
 //notice this is printed even before we connect
 console.log('end of script')

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./index.js localhost 8080"
+    "start": "nodemon ./index.js localhost 8080"
   },
   "author": "",
   "license": "ISC",
