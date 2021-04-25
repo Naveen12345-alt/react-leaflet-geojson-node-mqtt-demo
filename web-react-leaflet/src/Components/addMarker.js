@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {Marker, Popup} from 'react-leaflet'
+import mqtt from 'mqtt'
 
-var mqtt = require('mqtt')
-
-var client = mqtt.connect('mqtt://broker.hivemq.com:8000/mqtt', {
+const client = mqtt.connect('mqtt://broker.hivemq.com:8000/mqtt', {
   clientId: 'mqttjs01#gameit',
   keepAlive: 60,
   cleanSession: true,
