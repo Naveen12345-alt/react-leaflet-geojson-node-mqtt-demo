@@ -9,7 +9,7 @@ import AddMarkers from './Components/addMarker'
 L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.7.1/dist/images/'
 
 export default function App() {
-  // import geojson data and render on map
+  // import geojson data and render on map-->lookout for data directory in src
 
   return (
     <React.Fragment>
