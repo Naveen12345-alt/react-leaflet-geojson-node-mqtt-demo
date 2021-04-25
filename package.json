@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "mqtt": "^3.0.0",
-    "react-mqtt-client": "^1.0.0"
-  }
-}
