@@ -1,10 +1,10 @@
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import React from 'react'
-import {GeoJSON, MapContainer, Marker, Popup, TileLayer} from 'react-leaflet'
+import {GeoJSON, MapContainer, TileLayer} from 'react-leaflet'
 import './App.css'
-import route from './data/Directions_from_Delhi_to_Gurgaon_Haryana.json'
 import AddMarkers from './Components/addMarker'
+import route from './data/Directions_from_Delhi_to_Gurgaon_Haryana.json'
 
 L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.7.1/dist/images/'
 
